@@ -13,7 +13,12 @@ class UserController extends Controller
     //where条件
     // $user  = Db::table('users')->where('id',$id)->get();
     //查询第一条
-    $user = Db::table('users')->where('id','>',$id)->first();
-    dd($user);
+    // $user = Db::table('users')->where('id','>',$id)->first();
+    $flag = DB::table('users')->insert([
+        'name' => str_random(10),
+        'email' => str_random(8) . '@163.com',
+        'password' => bcrypt('secret')
+    ]);
+    dd($flag);
    }
 }
