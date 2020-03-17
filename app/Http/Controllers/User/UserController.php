@@ -14,11 +14,16 @@ class UserController extends Controller
     // $user  = Db::table('users')->where('id',$id)->get();
     //查询第一条
     // $user = Db::table('users')->where('id','>',$id)->first();
-    $flag = DB::table('users')->insert([
+    // $flag = DB::table('users')->insert([
+    //     'name' => str_random(10),
+    //     'email' => str_random(8) . '@163.com',
+    //     'password' => bcrypt('secret')
+    // ]);
+    $userId = DB::table('users')->insertGetId([
         'name' => str_random(10),
-        'email' => str_random(8) . '@163.com',
+        'email' => str_random(8) . '@qq.com',
         'password' => bcrypt('secret')
     ]);
-    dd($flag);
+    dd($userId);
    }
 }
